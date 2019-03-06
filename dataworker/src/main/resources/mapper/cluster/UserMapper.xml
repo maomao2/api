@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kwgproperty.server.dataworker.dao.cluster.UserDao">
+
+	<resultMap id="BaseResultMap" type="com.kwgproperty.server.dataworker.entity.MUser">
+		<result column="id" property="id" />
+		<result column="membership" property="membership" />
+		<result column="name" property="name" />
+		<result column="certificate_type" property="certificate_type" />
+		<result column="identity_no" property="identity_no" />
+		<result column="phone" property="phone" />
+		<result column="all_phone" property="all_phone" />
+		<result column="member_type" property="member_type" />
+		<result column="join_date" property="join_date" />
+		<result column="card_no" property="card_no" />
+		<result column="issuing_date" property="issuing_date" />
+		<result column="consumption_points" property="consumption_points" />
+		<result column="total_points" property="total_points" />
+		<result column="member_level" property="member_level" />
+		<result column="is_wechat" property="is_wechat" />
+		<result column="first_login" property="first_login" />
+		<result column="is_approve" property="is_approve" />
+		<result column="approve_date" property="approve_date" />
+		<result column="birthday" property="birthday" />
+		<result column="sex" property="sex" />
+		<result column="postcode" property="postcode" />
+		<result column="post_address" property="post_address" />
+		<result column="first_buy_home" property="first_buy_home" />
+		<result column="home_count" property="home_count" />
+		<result column="total_home_money" property="total_home_money" />
+		<result column="all_room" property="all_room" />
+		<result column="is_erp_sync" property="is_erp_sync" />
+		<result column="create_time" property="create_time" />
+		<result column="modify_time" property="modify_time" />
+		<result column="modify_user" property="modify_user" />
+	</resultMap>
+
+	<parameterMap id="User" type="com.kwgproperty.server.dataworker.entity.MUser"/>
+
+	<select id="getUserByPhone" resultMap="BaseResultMap" parameterType="String">
+		SELECT * from hj_cloud_old_user where phone=#{phone}
+	</select>
+
+</mapper>

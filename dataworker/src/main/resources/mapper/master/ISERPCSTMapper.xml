@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kwgproperty.server.dataworker.dao.master.ISERPCSTDao">
+
+	<resultMap id="BaseResultMap" type="com.kwgproperty.server.dataworker.entity.MISERPCST">
+		<result column="是否ERP业主" property="is_owner" />
+		<result column="价格等级" property="price_level" />
+	</resultMap>
+
+	<parameterMap id="ISERPCST" type="com.kwgproperty.server.dataworker.entity.MISERPCST"/>
+
+	<select id="checkIsERTCST" resultMap="BaseResultMap" parameterType="String">
+		exec Proc_ISERPCST #{buname},#{lpname},#{fqname},#{bldname},#{room},#{cstname},#{cardid}
+	</select>
+
+</mapper>

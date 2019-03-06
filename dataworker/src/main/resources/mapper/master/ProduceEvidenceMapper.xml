@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kwgproperty.server.dataworker.dao.master.ProduceEvidenceDao">
+
+	<resultMap id="BaseResultMap" type="com.kwgproperty.server.dataworker.entity.MProduceEvidence">
+		<result column="合同ID" property="contract_id" />
+		<result column="房间ID" property="room_id" />
+		<result column="房间号" property="room_number" />
+		<result column="产权办理进程" property="status" />
+		<result column="办理完成时间" property="finish_time" />
+	</resultMap>
+
+	<parameterMap id="ProduceEvidence" type="com.kwgproperty.server.dataworker.entity.MProduceEvidence"/>
+
+	<select id="findProduceEvidenceByRoomId" resultMap="BaseResultMap" parameterType="String">
+		select * from VS_菁密接口_产权信息 where cast(房间ID as varchar(50)) = #{roomId,jdbcType=VARCHAR} order by 办理完成时间
+	</select>
+
+</mapper>

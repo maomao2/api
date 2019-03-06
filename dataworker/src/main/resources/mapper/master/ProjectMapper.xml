@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kwgproperty.server.dataworker.dao.master.ProjectDao">
+
+	<resultMap id="BaseResultMap" type="com.kwgproperty.server.dataworker.entity.MProject">
+		<result column="城市ID" property="city_id" />
+		<result column="城市" property="city_name" />
+		<result column="楼盘ID" property="project_id" />
+		<result column="楼盘名称" property="project_name" />
+		<result column="期数ID" property="periods_id" />
+		<result column="期数" property="periods_number" />
+		<result column="楼栋号ID" property="ban_id" />
+		<result column="楼栋号" property="ban_number" />
+		<result column="房间号ID" property="room_id" />
+		<result column="房间号" property="room_number" />
+	</resultMap>
+
+	<parameterMap id="Project" type="com.kwgproperty.server.dataworker.entity.MProject"/>
+
+	<select id="getProjects" resultMap="BaseResultMap">
+		select * from VS_菁密接口_楼盘信息
+	</select>
+
+</mapper>
